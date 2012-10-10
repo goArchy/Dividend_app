@@ -1,14 +1,15 @@
 DividendApp::Application.routes.draw do
   resources :users
-  resources :stocks 
-  resources :quotes 
+  resources :stocks
+  resources :quotes
 
   root to: "static_pages#home"
 
   match '/about', to: 'static_pages#about'
 
   match '/signup',  to: 'users#new'
-
+  
+  match '/addstock', to: 'stocks#new'
 
 
   # The priority is based upon order of creation:
