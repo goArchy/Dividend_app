@@ -25,4 +25,13 @@ describe Stock do
     before { @stock.ticker = "applebal"}
     it { should_not be_valid }
   end
+
+  describe "when ticker is already taken" do
+    before do
+      stock_with_same_ticker = @stock.dup
+      stock_with_same_ticker.save
+    end
+
+    it { should_not be_valid }
+  end
 end
