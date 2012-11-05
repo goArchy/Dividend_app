@@ -1,2 +1,10 @@
-<h1>Stocks#index</h1>
-<p>Find me in app/views/stocks/index.html.erb</p>
+<% provide(:title, 'All Stocks') %>
+<h1>All Stocks</h1>
+
+<ul class="stocks">
+  <% @stock.each do |stock| %>
+    <li>
+      <%= link_to stock.name, stock %>
+    </li>
+  <% end %>
+</ul>

@@ -1,6 +1,7 @@
 DividendApp::Application.routes.draw do
-  resources :users
-  resources :sessions, only: [:new, :create, :destroy]
+
+  devise_for :users
+
   resources :stocks
   resources :quotes
 
@@ -8,9 +9,6 @@ DividendApp::Application.routes.draw do
 
   match '/about', to: 'static_pages#about'
 
-  match '/signup',  to: 'users#new'
-  match '/signin',  to: 'sessions#new'
-  match '/signout', to: 'sessions#destroy', via: :delete
 
   match '/addstock', to: 'stocks#new'
 
